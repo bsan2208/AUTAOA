@@ -1,0 +1,813 @@
+/* css/style.css - Comprehensive amenities section with horizontal scroll */
+
+:root {
+    --primary-color: #2c3e50; /* Dark Blue */
+    --secondary-color: #3498db; /* Bright Blue */
+    --accent-color: #e74c3c; /* Red for highlights */
+    --text-color: #333;
+    --light-bg: #f4f4f4; /* Original light grey, not used for body anymore */
+    --white: #fff;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg); /* ⭐ CHANGED: Default background for all pages */
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer sticks to the bottom */
+}
+
+
+
+/* --- Global Layout & Components --- */
+
+/* Header Styles */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem 0;
+    box-shadow: var(--box-shadow);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 80px;
+    position: relative;
+    z-index: 1001;
+}
+
+.header-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.main-header .header-logo {
+    height: 100px;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    flex-shrink: 1;
+}
+
+/* Navigation Pane Styles */
+.main-nav {
+	background-image: linear-gradient(to bottom, #2196F3, #1976D2);
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+    padding: 0.6rem 0; /* ⭐ CHANGED: Reduced vertical padding for the nav bar itself */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.main-nav ul li {
+    margin: 0 1rem;
+}
+
+.main-nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem; /* ⭐ CHANGED: Reduced vertical padding for each nav link */
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+	color: #ffffff;
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Main Content Area */
+.page-content {
+    flex: 1;
+    padding: 0 1rem 2rem 1rem; /* ⭐ CHANGED: Top padding set to 0. Keeps right, bottom, left padding. */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Common Content Panel for all pages except index */
+.content-panel {
+    background-color: var(--white); /* Ensures content is readable on top of blurred body background */
+    padding: 0rem 2rem;
+	margin: 0 auto 1.5rem auto; /* ⭐ CHANGED: Top margin set to 0. Keeps auto for left/right, and existing bottom. */
+    margin: 2rem auto 1.5rem auto;
+    max-width: 1440px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    min-height: unset;
+    height: auto;
+}
+
+.content-panel h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2em;
+}
+
+.content-panel p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+/* Table Styles (Common) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer Styles */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.1rem 1rem;
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.main-footer div {
+    flex: 0.5;
+    min-width: 250px;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.main-footer a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Page Specific Styles --- */
+
+/* Index Page Specific Styles (Hero Section) */
+/* The full-page-background div was removed from index.html as body now handles it */
+
+/* Index Page Specific Styles (Hero Section) */
+
+
+
+
+
+
+
+
+
+
+
+body:has(.full-page-background) .page-content { /* This rule is now effectively for all pages */
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    min-height: calc(100vh - 80px - 90px);
+	justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-section-content {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+	box-sizing: border-box;
+}
+
+.hero-section-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.0);
+}
+
+.hero-section-content p {
+    font-size: 1.0em;
+    max-width: 800px;
+    line-height: 1.0;
+    margin-bottom: 1.5rem;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-section-content strong {
+	font-size: 2.0em;
+	color: var(--accent-color);
+	font-weight: bold;
+	
+}
+
+.hero-section-content .index-bottom-image {
+    max-width: 20%;
+    height: auto;
+    margin-top: 0rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Amenities Page Specific Styles - REVISED FOR HORIZONTAL SCROLL */
+.amenities-grid {
+    display: flex; /* ⭐ Make it a flex container */
+    flex-wrap: nowrap; /* ⭐ CRUCIAL: Prevent items from wrapping to the next line */
+    overflow-x: auto; /* ⭐ CRUCIAL: Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+
+    gap: 20px; /* Space between amenity items */
+    width: 100%; /* Ensure it takes full available width */
+    margin-top: 1.5rem;
+    padding-bottom: 15px; /* Add padding for the scrollbar */
+    padding-left: 1rem; /* Padding at the start of the scrollable area */
+    padding-right: 1rem; /* Padding at the end of the scrollable area */
+    box-sizing: border-box; /* Include padding in the width calculation */
+
+    /* Optional: Hide scrollbar visually but keep functionality */
+    /*
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    &::-webkit-scrollbar { // Chrome, Safari, Opera
+        display: none;
+    }
+    */
+}
+
+.amenity-item {
+    flex-shrink: 0; /* ⭐ CRUCIAL: Prevent items from shrinking below their defined size */
+    flex-basis: 200px; /* ⭐ Define a fixed width for each item (adjust as needed) */
+    /* Using flex-basis ensures it attempts to be 200px wide before distributing extra space */
+
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Keep for the item's own hover effect */
+
+    /* Removed position/overflow for zoom as requested for now */
+}
+
+.amenity-item img {
+    max-width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: block; /* Removes extra space below image */
+    /* Removed transition for zoom as requested for now */
+}
+
+.amenity-item p {
+    font-size: 0.95em;
+    color: #555;
+    margin: 0;
+}
+
+/* Optional: Scrollbar styling (can make it more subtle or prominent) */
+.amenities-grid::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.amenities-grid::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.amenities-grid::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+}
+
+.amenities-grid::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+
+/* Managing Committee Page Specific Styles */
+.committee-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.committee-table-container table {
+    min-width: 600px;
+}
+
+/* Bylaw Page Specific Styles */
+.bylaw-section {
+    text-align: center;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.bylaw-section a {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+.bylaw-section a:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 700px;
+    border: 1px solid #ccc;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.close-pdf-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: none;
+}
+
+/* SOP Page Specific Styles */
+.sop-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.sop-table-container table {
+    min-width: 400px;
+}
+.sop-table-container td a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sop-table-container td a:hover {
+    text-decoration: underline;
+}
+
+/* Forms Page Specific Styles */
+.forms-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.forms-table-container table {
+    min-width: 400px;
+}
+
+.forms-table-container td a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forms-table-container td a:hover {
+    text-decoration: underline;
+}
+
+/* css/style.css */
+
+/* css/style.css */
+
+/* --- Gallery Page Specific Styles --- */
+
+.event-section {
+    width: 100%;
+    margin-bottom: 3rem;
+    text-align: center; /* Centers the h3 if it's narrower than the section */
+}
+
+.event-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    display: inline-block; /* Makes border-bottom apply only to text width */
+}
+
+/* ⭐ CRITICAL: Styles for Horizontal Gallery Scroll */
+.event-images-grid {
+    display: flex;             /* 1. Make it a flex container */
+    flex-wrap: nowrap;         /* 2. CRUCIAL: Prevent items from wrapping */
+    overflow-x: auto;          /* 3. CRUCIAL: Enable horizontal scrolling */
+    
+    gap: 20px;                 /* Space between gallery items */
+    width: 100%;               /* Ensure it takes full available width */
+    padding-bottom: 15px;      /* Space for horizontal scrollbar */
+    padding-left: 1rem;        /* Padding at the start of the scrollable area */
+    padding-right: 1rem;       /* Padding at the end of the scrollable area */
+    box-sizing: border-box;    /* Include padding in the width calculation */
+
+    /* Optional: Hide scrollbar visually but keep functionality (add if desired) */
+    /*
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    &::-webkit-scrollbar { // Chrome, Safari, Opera
+        display: none;
+    }
+    */
+}
+
+.gallery-image-wrapper {
+    flex-shrink: 0;            /* 4. CRUCIAL: Prevent items from shrinking */
+    width: 250px;              /* 5. Define a fixed width for each item (adjust as needed) */
+    /* Using 'width' directly or 'flex-basis' both work here, 'width' is more direct */
+    
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /* Important if you add zoom effect later, keeps zoom within bounds */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* For any general hover effects on the wrapper */
+    text-align: center; /* For text inside the wrapper */
+}
+
+.gallery-image-wrapper:hover {
+    transform: translateY(-5px); /* Example hover lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image-wrapper img {
+    width: 100%;               /* Image fills its wrapper's width */
+    height: 180px;             /* Consistent height for all gallery images */
+    object-fit: cover;         /* Crops image to fit without distortion */
+    display: block;            /* Removes any extra space below images */
+    margin-bottom: 10px;       /* Space between image and text */
+    border-radius: 4px;        /* Consistent border-radius for images */
+}
+
+.gallery-image-wrapper p {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+/* --- Responsive Design Adjustments for Gallery --- */
+@media (max-width: 768px) {
+    .event-images-grid {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    .gallery-image-wrapper {
+        width: 220px; /* Adjust width for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .event-images-grid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .gallery-image-wrapper {
+        width: 180px; /* Adjust width for very small screens */
+    }
+}
+
+/* What's News Page Specific Styles */
+.news-section {
+    width: 100%;
+    max-width: 1500px;
+    margin-top: 1.5rem;
+}
+
+.scrolling-news-container {
+    background-color: var(--light-bg);
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 40px;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+.scrolling-news {
+    white-space: nowrap;
+    animation: scroll-left 15s linear infinite;
+    padding-top: 5px;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.blinking-text {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.news-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.news-table-container table {
+    min-width: 1000px;
+}
+
+/* css/style.css */
+
+/* --- Contact Page Specific Styles --- */
+
+/* ⭐ NEW: Container for contact tables to provide a wider space */
+.contact-tables-container-wider {
+    max-width: 1440px; /* You can adjust this value if needed, e.g., 1300px-1500px */
+    margin: 0 auto; /* Center this new container within its parent */
+    padding: 0 1rem; /* Add some horizontal padding inside this container for spacing */
+    box-sizing: border-box;
+}
+
+/* ⭐ NEW: Styles for the w/o horizontal scrolling wrapper */
+.contact-sections-wrapper {
+    display: flex;
+    flex-wrap: wrap;         
+    overflow-x: hidden;      
+    gap: 30px;               
+    width: 100%;             
+    margin-top: 1.5rem;
+    padding-bottom: 15px;    
+    /* Removed padding-left/right here, as new container will handle it */
+    box-sizing: border-box;
+    justify-content: space-between; /* Ensures tables spread across the new wider container */
+    align-items: flex-start;
+}
+
+.contact-category {
+    flex-shrink: 1;          
+    flex-grow: 1;            
+    flex-basis: calc(33.33% - 20px); /* Aims for 3 columns to share width */
+    min-width: 380px; /* Ensures enough width for internal content without wrapping */
+
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 0;
+    text-align: center;
+    padding: 1.5rem 2rem;
+}
+
+.contact-category caption {
+    /* Existing styles for caption */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding: 10px 0;
+    caption-side: top; /* Ensures caption is at the top of the table */
+    text-align: center;
+}
+
+.contact-category table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--white);
+    box-shadow: none;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed; /* ⭐ NEW: Ensures column widths are respected */
+}
+
+.contact-category table th, .contact-category table td {
+    padding: 10px 8px; /* Keep reduced padding */
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.9em; /* Keep slightly smaller font size */
+    /* ⭐ REMOVED: white-space: nowrap, overflow: hidden, text-overflow: ellipsis to allow natural fit */
+    /* You can keep word-break: break-word; if you want long words to break within the line */
+}
+
+/* Keep your existing column width percentages. They will apply within the 450px width. */
+.contact-category table th:nth-child(1), .contact-category table td:nth-child(1) { width: 15%; }
+.contact-category table th:nth-child(2), .contact-category table td:nth-child(2) { width: 45%; }
+.contact-category table th:nth-child(3), .contact-category table td:nth-child(3) { width: 40%; }
+
+/* Ensure other table specific styles like th, td, tr:nth-child(even) etc. remain */
+
+
+/* --- Responsive Design Adjustments for Contact Page --- */
+@media (max-width: 768px) {
+    .contact-sections-wrapper {
+        gap: 20px;
+    }
+    .contact-category {
+        flex-basis: calc(50% - 10px); /* Two columns on medium screens */
+        min-width: 350px; /* ⭐ MODIFIED: Ensures content fits well on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-sections-wrapper {
+        gap: 15px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .contact-category {
+        flex-basis: 100%;
+        min-width: unset; /* Allows it to scale down on very small screens */
+    }
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 1rem;
+        min-height: unset;
+    }
+    .header-content-wrapper {
+        gap: 10px;
+        flex-direction: row;
+    }
+    .main-header .header-logo {
+        height: 50px;
+    }
+    .main-header h1 {
+        font-size: 1.8em;
+        white-space: normal;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 150px;
+    }
+
+    /* Amenities grid adjustment */
+    .amenities-grid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .amenity-item {
+        flex-basis: 180px; /* Slightly smaller items on medium screens */
+    }
+
+    /* Gallery grid adjustment */
+    .event-images-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .event-section h3 {
+        font-size: 1.8em;
+    }
+
+    /* Index page responsive adjustments */
+    .hero-section-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .hero-section-content h2 {
+        font-size: 2.2em;
+    }
+    .hero-section-content p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 1rem 0;
+    }
+    .header-content-wrapper {
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+    .main-header .header-logo {
+        height: 45px;
+        margin-bottom: 0;
+    }
+    .main-header h1 {
+        font-size: 1.5em;
+        text-align: center;
+        width: 100%;
+        white-space: normal;
+    }
+
+    /* Amenities grid adjustment for very small screens */
+    .amenity-item {
+        flex-basis: 160px; /* Even smaller items on very small screens */
+    }
+
+    /* Gallery grid adjustment for very small screens */
+    .event-images-grid {
+        grid-template-columns: 1fr;
+    }
+    .event-section h3 {
+        font-size: 1.5em;
+    }
+
+    /* Index page responsive adjustments for smaller screens */
+    .hero-section-content {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    .hero-section-content h2 {
+        font-size: 1.8em;
+    }
+    .hero-section-content p {
+        font-size: 0.9em;
+    }
+
+    .hero-section-content .index-bottom-image {
+        max-width: 95%;
+        margin-top: 1rem;
+    }
+}
