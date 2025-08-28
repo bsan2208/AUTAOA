@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ⭐ NEW: Wrap the logo and h1 in a div with class 'header-content-wrapper'
     mainHeader.innerHTML = `
         <div class="header-content-wrapper">
-            <img src="images/logo3.png" alt="AUTAOA Logo" class="header-logo">
+            <img src="images/Logo3.png" alt="AUTAOA Logo" class="header-logo">
             <h1>${headerText}</h1>
         </div>
     `;
@@ -61,4 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
 });
